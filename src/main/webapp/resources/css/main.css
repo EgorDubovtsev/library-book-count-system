@@ -1,0 +1,409 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 23px;
+    color: black;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+}
+
+.wallpaper {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -30;
+    background-color:#EDFDF4;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #FFAB57;
+}
+
+.userMenu {
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    margin-top:-80px;
+    margin-left:60%;
+    margin-bottom:100px;
+    justify-content: space-around;
+    color: black;
+    width: 40%;
+    height: 60px;
+}
+
+.name {
+    padding-top: 30px;
+}
+
+.menuButton {
+    padding-top: 25px;
+    margin-right: 10px;
+}
+
+.menuButtonWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.allBooks {
+    margin-top: 100px;
+    width: 80%;
+    margin: auto;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../resources/icon/icomoon.eot?y7fg4i');
+    src: url('../resources/icon/icomoon.eot?y7fg4i#iefix') format('embedded-opentype'),
+    url('../resources/icon/icomoon.ttf?y7fg4i') format('truetype'),
+    url('../resources/icon/icomoon.woff?y7fg4i') format('woff'),
+    url('../resources/icon/icomoon.svg?y7fg4i#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shopping-cart:before {
+    content: "\e900";
+}
+
+.icon-cart:before {
+    content: "\e93a";
+}
+
+.icon-cart {
+    font-size: 40px;
+    margin: auto;
+    color: white;
+}
+
+
+
+.mainName {
+    font-weight: bold;
+    margin-left: 40px;
+    display: flex;
+    justify-content: left;
+    font-size: 2.5em;
+}
+
+.search {
+    min-width: 535px;
+    max-width: 1500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    border: 1px solid black;
+}
+
+#searchLine {
+    width: 80%;
+    height: 30px;
+    font-size: 25px;
+}
+
+#searchButton {
+    text-align: center;
+    padding-top: 8px;
+    cursor: pointer;
+    width: 20%;
+    font-size: 20px;
+    background-color: #55D386;
+}
+
+#searchButton:active {
+    transition: 0.2s;
+    background-color: #FD9A30;
+}
+
+.redirectButtonWrapper {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    position: fixed;
+    border-radius: 50%;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border: 1px solid white;
+    right: 4%;
+    background-color: #FFAB57;
+}
+
+.redirectButton {
+    width: 200px;
+}
+
+.redirectButtonWrapper:hover {
+    background: #FF9833;
+    animation: 1.2s ease-in 0s normal none 1 running rotateAnimation;
+}
+
+@keyframes rotateAnimation {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(-13deg);
+    }
+    20%, 40% {
+        transform: rotate(13deg);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+
+
+
+.price {
+    font-size: 28px;
+    width: 95%;
+    text-align: right;
+    font-weight: bold;
+}
+
+.sml {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.filters {
+    max-width: 1500px;
+    padding-top: 10px;
+    width: 70%;
+    border: 1px solid black;
+    min-height: 40px;
+    margin: auto;
+    background-color: #DEDEDE;
+    opacity: 0.5;
+    justify-content: center;
+    min-width: 535px;
+    display: flex;
+}
+
+.filterColumn {
+    width: 33%;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.filterField {
+    font-size: 20px;
+    width: 200px;
+}
+
+.select {
+    font-size: 20px;
+    width: 210px;
+}
+.bookStatus{
+    width: 40px;
+    display:flex;
+}
+.book {
+    display:flex;
+    border-radius: 4px;
+    vertical-align: middle;
+    color: black;
+    justify-content: space-between;
+    margin: 30px;
+    border: 1px solid black;
+    width: 100%;
+   // height: 50px;
+    min-width: 400px;
+    background: white;
+}
+
+.book:hover {
+    transform: scale(1.03);
+    transition: 0.1s;
+}
+
+
+.booksList {
+	margin-top: 100px;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.bookName {
+    padding-left:20px;
+    text-align: left;
+    font-size: 30px;
+    width:200px;
+}
+.bookSaveButton{
+padding:30px;
+text-align:center;
+
+}
+
+.btn {
+    cursor: pointer;
+  //  border-radius: 9px;
+    display: flex;
+    background-color: #55D386;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigFont {
+    font-size: 30px;
+}
+
+.addButton {
+    height: 36px;
+    width: 100%;
+}
+
+.btn:hover {
+    transition: 0.3s;
+    box-shadow: 6px 6px 10px 6px rgba(0, 0.3, 0, 0.2);
+}
+
+.btn:active {
+    transition: 0.2s;
+    background-color: #FD9A30;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+link:focus {
+    outline: 0 !important;
+}
+
+.errorMessage {
+    color: red;
+    font-style: italic;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.sml {
+    font-size: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.paginationButtonsWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.paginationElement {
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #FFAB57;
+    background: #467E3E;
+    padding: 7px 14px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.paginationElement:hover {
+    transform: scale(1.2);
+}
+
+.activePage {
+    background: #FFAB57;
+}
+
+@media screen and (max-device-width: 1335px) {
+    .filterField {
+        width: 240px;
+    }
+}
+
+@media screen and (max-device-width: 1040px) {
+    .filterColumn {
+        height: 70px;
+        display: flex;
+    }
+
+    .filterField {
+        display: flex;
+        width: 400px;
+        font-size: 1em;
+    }
+
+    .filters {
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+
+    .redirectButtonWrapper {
+        margin: auto;
+        position: relative;
+        right: 0;
+    }
+
+    .userMenu {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-device-width: 1136px) {
+    .window {
+        margin-left: 0px;
+        width: 100%;
+        min-width: 726px;
+    }
+
+    .closeWindow {
+        right: 50px;
+    }
+}

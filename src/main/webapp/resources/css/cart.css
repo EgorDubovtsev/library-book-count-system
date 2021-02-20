@@ -1,0 +1,181 @@
+.cartName {
+    width: 70%;
+    margin: auto;
+    font-size: 40px;
+    margin-top: 40px;
+}
+
+.bookNameInCart {
+    font-size: 1.4em;
+    width: 70%;
+    height: 30px;
+    padding-left: 10px;
+
+}
+
+.icon-home:before {
+    content: "\e901";
+}
+
+.icon-cart:before {
+    content: "\e93a";
+}
+
+.icon-home {
+    font-size: 40px;
+    margin: auto;
+    color: white;
+}
+
+.toShop {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    position: fixed;
+    border-radius: 50%;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border: 1px solid white;
+    margin-left: 94%;
+    background-color: #FFAB57;
+}
+
+.cartListOuter {
+    margin: auto;
+    background-color: rgba(200, 200, 200, 0.6);
+    opacity: 0.85;
+    width: 70%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.cartListInner {
+    margin: auto;
+    width: 80%;
+}
+
+.bookInCart {
+    padding-left: 10px;
+    padding-top: 12px;
+    flex-wrap: wrap;
+    opacity: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.bookInCart:hover {
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+.picBookInCart {
+    display: flex;
+    min-width: 100px;
+    justify-content: center;
+    height: 66px;
+    width: 10%;
+}
+
+.priceInCart {
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+    width: 100%;
+    align-items: flex-end;
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+.priceWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delFromCart {
+    justify-content: flex-end;
+    width: 8%;
+    right: 20px;
+    top: 20px;
+    display: flex;
+}
+
+.resultPriceWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    color: black;
+}
+
+.resultPrice {
+    font-size: 28px;
+}
+
+.buyBtn {
+    width: 30%;
+    height: 30px;
+    right: 0;
+}
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    height: 100px;
+    width: 300px;
+    border-radius: 4px;
+    border-top: 4px solid #FFAB57;
+    border-bottom: 4px solid #FFAB57;
+    opacity: 0;
+    text-align: center;
+    font-size: 1.2em;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.success {
+    background: #4B8F00;
+    color: white;
+}
+
+.fail {
+    background: #B80900;
+    color: white;
+}
+
+@media screen and (max-device-width: 900px) {
+    .buyBtn {
+        width: 100%;
+        height: 40px;
+    }
+
+    .resultPriceWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-device-width: 747px) {
+    .bookNameInCart{
+        width: 100%;
+        text-align: left;
+    }
+     .picBookInCart{
+        margin: auto;
+    }
+}
+
+@media screen and (max-device-width: 1444px) {
+    .bookNameInCart{
+        width: 50%;
+    }
+}

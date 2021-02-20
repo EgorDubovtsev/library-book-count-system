@@ -1,0 +1,66 @@
+.icon-home:before {
+    content: "\e901";
+}
+
+.icon-cart:before {
+    content: "\e93a";
+}
+
+.icon-home {
+    font-size: 40px;
+    margin: auto;
+    color: white;
+}
+
+.toShop {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    position: fixed;
+    border-radius: 50%;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border: 1px solid white;
+    margin-left: 94%;
+    background-color: #FFAB57;
+}
+
+.paramBook {
+    flex-wrap: wrap;
+    opacity: 1;
+    display: flex;
+    width: 100%;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    background-color: white;
+    justify-content: space-between;
+    padding: 10px 30px 10px 30px;
+}
+
+.descCreate {
+    height: 300px;
+    width: 60%;
+    font-size: 20px;
+}
+
+.fileInput {
+    width: 30%;
+    font-size: 20px;
+}
+
+.saveBtn {
+    width: 25%;
+    right: 0;
+    padding: 5px;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.saveWrapper {
+    width: 106%;
+    display: flex;
+    justify-content: space-between;
+}
