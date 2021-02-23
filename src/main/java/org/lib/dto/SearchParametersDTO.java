@@ -10,10 +10,6 @@ public interface SearchParametersDTO {
 
     void setGenre(String genre);
 
-    String getMaxPrice();
-
-    void setMaxPrice(String maxPrice);
-
     String getAuthor();
 
     void setAuthor(String author);

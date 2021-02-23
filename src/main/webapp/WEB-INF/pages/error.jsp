@@ -2,7 +2,7 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-	<title>Book Shop</title>
+	<title>Библиотка</title>
 	<c:set var="staticRoot" value="${pageContext.request.contextPath}/resources"/>
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 	<style>

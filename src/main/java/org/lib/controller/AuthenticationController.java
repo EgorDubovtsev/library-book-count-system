@@ -1,6 +1,6 @@
 package org.lib.controller;
 
-import org.lib.dto.CreatedBookImpl;
+import org.lib.dto.BookDTO;
 import org.lib.dto.RegistredUserDTO;
 import org.lib.entity.AuthorizedUser;
 import org.lib.mappers.AuthorizedUserMapper;
@@ -84,7 +84,7 @@ public class AuthenticationController {
                                  HttpServletRequest request,
                                  @RequestParam(required = false) String error) {
         if (!model.containsAttribute("createBookForm")) {
-            model.addAttribute("createBookForm", new CreatedBookImpl());
+            model.addAttribute("createBookForm", new BookDTO());
         }
         if (error != null) {
             if (error.equals("emptyFields")) {

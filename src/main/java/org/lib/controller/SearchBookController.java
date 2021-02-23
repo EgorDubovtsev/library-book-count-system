@@ -22,13 +22,11 @@ public class SearchBookController {
     public @ResponseBody
     String getBookByParameters(@RequestParam String name,
                                @RequestParam String author,
-                               @RequestParam String genre,
-                               @RequestParam String maxPrice) {
+                               @RequestParam String genre) {
         SearchParametersDTO searchParameters = new SimpleSearchParameters();
         searchParameters.setName(name);
         searchParameters.setAuthor(author);
         searchParameters.setGenre(genre);
-        searchParameters.setMaxPrice(maxPrice);
 
         searchService.findBookBySearchParameters(searchParameters);
         try {

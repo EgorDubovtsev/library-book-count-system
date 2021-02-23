@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class SimpleBooksDao implements BooksDao {
@@ -19,18 +18,18 @@ public class SimpleBooksDao implements BooksDao {
 
     @Override
     public List<BookDTO> getList() {
-        String sqlGetAllBooks = "SELECT * FROM books join books_genres on books.book_name = books_genres.book_name";
+        String sqlGetAllBooks = "SELECT * FROM books_list join books_genres_lib on books_list.book_name = books_genres_lib.book_name";
         return jdbcTemplate.query(sqlGetAllBooks, bookMapper);
     }
 
     @Override
     public int addBook(BookDTO bookDTO) {
-        String sqlAddBook = "INSERT INTO books values(?, ?, ?, ?, ?);";
+        String sqlAddBook = "INSERT INTO books_list values(?, ?, ?, ?, ?);";
 
-        String sqlAddBookGenre = "INSERT INTO books_genres VALUES(?, ?);";
+        String sqlAddBookGenre = "INSERT INTO books_genres_lib VALUES(?, ?);";
         jdbcTemplate.update(sqlAddBook, bookDTO.getName(),
-                bookDTO.getPublishYear(), bookDTO.getDescription(),
-                bookDTO.getPrice(), bookDTO.getAuthor());
+                bookDTO.getAuthor(), bookDTO.isOccupied(),
+                bookDTO.getReturnDate().toString());
         return jdbcTemplate.update(sqlAddBookGenre, bookDTO.getName(), bookDTO.getGenre());
     }
 
@@ -39,7 +38,7 @@ public class SimpleBooksDao implements BooksDao {
         if (name.trim().equals("")) {
             return null;
         }
-        String sqlGetBookByName = "SELECT * FROM books join books_genres on books.book_name = books_genres.book_name where books.book_name = ?";
+        String sqlGetBookByName = "SELECT * FROM books_list join books_genres_lib on books_list.book_name = books_genres_lib.book_name where books_list.book_name = ?";
         try {
             return jdbcTemplate.queryForObject(sqlGetBookByName, bookMapper, name);
         } catch (Exception ex) {
@@ -53,18 +52,13 @@ public class SimpleBooksDao implements BooksDao {
         String bookName = searchParameters.getName().equals("") ? "%" : searchParameters.getName();
         String bookAuthor = searchParameters.getAuthor().equals("") ? "%" : searchParameters.getAuthor();
         String bookGenre = searchParameters.getGenre().equals("") ? "%" : searchParameters.getGenre();
-        String bookMaxPrice = searchParameters.getMaxPrice();
         String sqlGetBooksByParameters = "SELECT * FROM (" +
                 "SELECT * FROM (" +
-                "SELECT * FROM books WHERE book_name LIKE ?) AS books" +
-                " JOIN books_genres ON books.book_name = books_genres.book_name " +
-                "WHERE books_genres.genre LIKE ?" +
+                "SELECT * FROM books_list WHERE book_name LIKE ?) AS books" +
+                " JOIN books_genres_lib ON books.book_name = books_genres_lib.book_name " +
+                "WHERE books_genres_lib.genre LIKE ?" +
                 ") AS result_table WHERE result_table.author LIKE ?";
-        if (!bookMaxPrice.equals("")) {
-            return jdbcTemplate.query(sqlGetBooksByParameters, bookMapper, bookName, bookGenre, bookAuthor).stream()
-                    .filter(bookDTO -> bookDTO.getPrice() < Integer.parseInt(bookMaxPrice))
-                    .collect(Collectors.toList());
-        }
+
         return jdbcTemplate.query(sqlGetBooksByParameters, bookMapper, bookName, bookGenre, bookAuthor);
     }
 }

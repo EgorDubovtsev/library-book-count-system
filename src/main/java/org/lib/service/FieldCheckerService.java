@@ -1,7 +1,7 @@
 package org.lib.service;
 
 
-import org.lib.dto.CreatedBookDTO;
+import org.lib.dto.BookDTO;
 import org.lib.dto.RegistredUserDTO;
 import org.lib.entity.User;
 
@@ -15,14 +15,11 @@ public class FieldCheckerService implements FieldChecker {
     }
 
     @Override
-    public boolean isNull(CreatedBookDTO createdBookDTO) {
+    public boolean isNull(BookDTO createdBookDTO) {
         return createdBookDTO == null
                 ||createdBookDTO.getName().trim().equals("")
                 || createdBookDTO.getAuthor().trim().equals("")
-                || createdBookDTO.getDescription().trim().equals("")
-                || createdBookDTO.getGenre().equals("null")
-                || createdBookDTO.getPrice() == 0
-                || createdBookDTO.getPublishYear() == 0;
+                || createdBookDTO.getGenre().equals("null");
     }
 
     @Override

@@ -2,35 +2,28 @@ package org.lib.mappers;
 
 
 import org.lib.dto.BookDTO;
-import org.lib.dto.CreatedBookDTO;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class BookMapper implements RowMapper<BookDTO>, IBookMapper {
+public class BookMapper implements RowMapper<BookDTO> {
 
     @Override
     public BookDTO mapRow(ResultSet resultSet, int i) throws SQLException {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         BookDTO book = new BookDTO();
         book.setName(resultSet.getString("book_name"));
-        book.setPublishYear(resultSet.getInt("publishYear"));
-        book.setDescription(resultSet.getString("description"));
+        book.setOccupied(resultSet.getBoolean("is_occupied"));
+        if (resultSet.getString("return_date")!=null){
+            book.setReturnDate(LocalDate.parse(resultSet.getString("return_date"), dateTimeFormatter));
+        }
         book.setAuthor(resultSet.getString("author"));
+        book.setOwnerName(resultSet.getString("ownerName"));
         book.setGenre(resultSet.getString("genre"));
-        book.setPrice(resultSet.getInt("price"));
         return book;
     }
 
-    @Override
-    public BookDTO mapFromCreatedBook(CreatedBookDTO createdBookDTO) {
-        BookDTO bookDTO = new BookDTO();
-        bookDTO.setAuthor(createdBookDTO.getAuthor());
-        bookDTO.setDescription(createdBookDTO.getDescription());
-        bookDTO.setName(createdBookDTO.getName());
-        bookDTO.setPrice(createdBookDTO.getPrice());
-        bookDTO.setPublishYear(createdBookDTO.getPublishYear());
-        bookDTO.setGenre(createdBookDTO.getGenre());
-        return bookDTO;
-    }
 }

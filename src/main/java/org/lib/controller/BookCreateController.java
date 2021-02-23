@@ -1,7 +1,6 @@
 package org.lib.controller;
 
 import org.lib.dto.BookDTO;
-import org.lib.dto.CreatedBookImpl;
 import org.lib.mappers.BookMapper;
 import org.lib.service.BookService;
 import org.lib.service.FieldChecker;
@@ -24,7 +23,7 @@ public class BookCreateController {
     private FieldChecker fieldChecker;
 
     @PostMapping("/createBook/proceed")
-    public String processBookCreating(@Valid @ModelAttribute("createBookForm") CreatedBookImpl createdBook,
+    public String processBookCreating(@Valid @ModelAttribute("createBookForm") BookDTO createdBook,
                                       BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
@@ -36,8 +35,7 @@ public class BookCreateController {
         } else if (bookService.findByName(createdBook.getName()) != null) {
             return "redirect:/createBook?error=bookExist";
         }
-        BookDTO bookDTO = bookMapper.mapFromCreatedBook(createdBook);
-        bookService.addBook(bookDTO);
+        bookService.addBook(createdBook);
         return "redirect:/";
     }
 }

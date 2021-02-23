@@ -1,7 +1,5 @@
 $(document).ready(function () {
     const userLogin = $("#login").text().trim()
-    reloadCounter(userLogin);
-    getTotalPrice()
 
     $(".bookEntity").click(function () {
         const win = $("#window");

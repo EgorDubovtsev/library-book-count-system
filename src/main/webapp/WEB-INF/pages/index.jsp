@@ -9,9 +9,6 @@
     <c:set var="staticRoot" value="${pageContext.request.contextPath}/resources"/>
 	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type="text/javascript" src="${staticRoot}/js/popup.js"></script>
-	<script type="text/javascript" src="${staticRoot}/js/pagination.js"></script>
-	<script type="text/javascript" src="${staticRoot}/js/cart.js"></script>
 	<script type="text/javascript" src="${staticRoot}/js/searchBook.js"></script>
 	<script type="text/javascript" src="${staticRoot}/js/main.js"></script>
 	<style>
@@ -60,7 +57,7 @@
 	</div>
 	<div class="allBooks">
 		<div class="booksList">
-            <div class="book">
+            <div class="bookExample">
                  <p style="width:200px; padding-left:20px;">Название книги</p>
                  <p >Автор</p>
                  <p >Жанр</p>
@@ -75,9 +72,10 @@
 			                 <p class="bookName">${book.getName()}</p>
 			                 <p class="bookStatus">${book.getAuthor()}</p>
 			                 <p class="bookStatus">${book.getGenre()}</p>
-			                 <p class="bookStatus">занята</p>
-			                 <input type="text" class="bookUser" value="Ivan Petrov" />
-			                 <input type="date" class="bootReturnDate" value="2021-12-31"/>
+                            <p class="bookStatus">  ${book.isOccupied()?"занята":"свободна"}</p>
+                            <input type="text" class="bookUser" value="${book.getOwnerName()}" />
+                            <input type="date" class="bootReturnDate" value="${book.getReturnDate()}"/>
+
 			                 <a href="#" class="bookSaveButton btn">Сохранить</a>
 		                 </div>
 
