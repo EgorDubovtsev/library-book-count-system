@@ -5,6 +5,7 @@ import org.lib.dto.BookDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Component
@@ -25,6 +26,11 @@ public class SimpleBookService implements BookService {
     @Override
     public BookDTO findByName(String name) {
         return booksDao.getBookByName(name);
+    }
+
+    @Override
+    public void saveBook(String bookName, String bookOwner, String returnDate) {
+        booksDao.saveBook(bookName,bookOwner,returnDate);
     }
 
 }

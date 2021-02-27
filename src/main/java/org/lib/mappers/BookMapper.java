@@ -17,8 +17,9 @@ public class BookMapper implements RowMapper<BookDTO> {
         BookDTO book = new BookDTO();
         book.setName(resultSet.getString("book_name"));
         book.setOccupied(resultSet.getBoolean("is_occupied"));
-        if (resultSet.getString("return_date")!=null){
-            book.setReturnDate(LocalDate.parse(resultSet.getString("return_date"), dateTimeFormatter));
+        String returnDate = resultSet.getString("return_date");
+        if (returnDate!=null && !returnDate.trim().equals("")) {
+            book.setReturnDate(LocalDate.parse(returnDate,dateTimeFormatter));
         }
         book.setAuthor(resultSet.getString("author"));
         book.setOwnerName(resultSet.getString("ownerName"));

@@ -12,4 +12,5 @@ public interface BookService {
 
     BookDTO findByName(String name);
 
+    void saveBook(String bookName, String bookOwner, String returnDate);
 }

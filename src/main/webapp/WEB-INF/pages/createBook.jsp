@@ -5,9 +5,9 @@
 <head>
 	<title>Библиотека</title>
 	<c:set var="staticRoot" value="${pageContext.request.contextPath}/resources"/>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type="text/javascript" src="${staticRoot}/resources/js/cart.js"></script>
 	<script type="text/javascript" src="${staticRoot}/resources/js/main.js"></script>
 	<script type="text/javascript" src="${staticRoot}/resources/js/validation.js"></script>
 	<style>
@@ -28,11 +28,13 @@
 			</form>
 		</div>
 	</div>
-	<form action="/" method="get">
-        <button class="link btn">
+	<div class="userMenu">
+	<form class="menuButton" action="/" method="get">
+        <button>
           Вернуться на главную
         </button>
 	</form>
+	</div>
 	<div class="cartName">Добавить новую книгу</div>
 	<div class="cartListOuter">
 		<form:form class="cartListInner" action="/createBook/proceed" method="post" modelAttribute="createBookForm" >

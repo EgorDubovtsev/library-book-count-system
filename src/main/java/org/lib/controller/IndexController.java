@@ -1,5 +1,6 @@
 package org.lib.controller;
 
+import org.lib.dto.BookDTO;
 import org.lib.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,6 +23,9 @@ public class IndexController {
                         @RequestParam(required = false) String open,
                         @RequestParam(required = false) String toCart,
                         HttpServletResponse response) {
+        if (!model.containsAttribute("saveForm")) {
+            model.addAttribute("saveForm", new BookDTO());
+        }
         model.addAttribute("name", authentication.getName());
         model.addAttribute("booksList", bookService.getBooksList());
         response.addCookie(new Cookie("login", authentication.getName()));

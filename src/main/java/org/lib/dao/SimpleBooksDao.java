@@ -24,12 +24,10 @@ public class SimpleBooksDao implements BooksDao {
 
     @Override
     public int addBook(BookDTO bookDTO) {
-        String sqlAddBook = "INSERT INTO books_list values(?, ?, ?, ?, ?);";
+        String sqlAddBook = "INSERT INTO books_list(book_name, author) values(?, ?);";
 
         String sqlAddBookGenre = "INSERT INTO books_genres_lib VALUES(?, ?);";
-        jdbcTemplate.update(sqlAddBook, bookDTO.getName(),
-                bookDTO.getAuthor(), bookDTO.isOccupied(),
-                bookDTO.getReturnDate().toString());
+        jdbcTemplate.update(sqlAddBook, bookDTO.getName(), bookDTO.getAuthor());
         return jdbcTemplate.update(sqlAddBookGenre, bookDTO.getName(), bookDTO.getGenre());
     }
 
@@ -60,5 +58,13 @@ public class SimpleBooksDao implements BooksDao {
                 ") AS result_table WHERE result_table.author LIKE ?";
 
         return jdbcTemplate.query(sqlGetBooksByParameters, bookMapper, bookName, bookGenre, bookAuthor);
+    }
+
+    @Override
+    public void saveBook(String bookName, String bookOwnerName, String returnDate) {
+        String saveBookSql = "UPDATE books_list set (ownerName, return_date, is_occupied) = (?,?,?) where book_name=?";
+        boolean isOccupied = !bookOwnerName.equals("");
+
+        jdbcTemplate.update(saveBookSql,bookOwnerName,returnDate,isOccupied,bookName);
     }
 }

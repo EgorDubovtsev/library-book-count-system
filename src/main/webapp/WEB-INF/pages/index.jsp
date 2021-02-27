@@ -7,10 +7,12 @@
 <head>
 	<title>Библиотека</title>
     <c:set var="staticRoot" value="${pageContext.request.contextPath}/resources"/>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="${staticRoot}/js/searchBook.js"></script>
 	<script type="text/javascript" src="${staticRoot}/js/main.js"></script>
+	<script type="text/javascript" src="${staticRoot}/js/saveBookChanges.js"></script>
 	<style>
          <%@include file='../../resources/css/main.css' %>
          <%@include file='../../resources/css/registrationAndLogin.css' %>
@@ -68,15 +70,16 @@
              </div>
 			 <c:forEach items="${booksList}" var="book">
 
-	                	<div class="book">
+	                	<div class="book" id="book-${book.getName()}">
 			                 <p class="bookName">${book.getName()}</p>
 			                 <p class="bookStatus">${book.getAuthor()}</p>
 			                 <p class="bookStatus">${book.getGenre()}</p>
+			                 <input type="hidden" path="name" value="${book.getName()}"/>
                             <p class="bookStatus">  ${book.isOccupied()?"занята":"свободна"}</p>
-                            <input type="text" class="bookUser" value="${book.getOwnerName()}" />
-                            <input type="date" class="bootReturnDate" value="${book.getReturnDate()}"/>
+                            <input type="text" class="bookUser" path="ownerName" value="${book.getOwnerName()}" />
+                            <input type="date" class="bookReturnDate" path="returnDate" value="${book.getFormattedDate()}"/>
 
-			                 <a href="#" class="bookSaveButton btn">Сохранить</a>
+			                 <a  class="bookSaveButton btn" id="${book.getName()}">Сохранить</a>
 		                 </div>
 
 			 </c:forEach>

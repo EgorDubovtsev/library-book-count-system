@@ -14,4 +14,6 @@ public interface BooksDao {
     BookDTO getBookByName(String name);
 
     List<BookDTO> getBooksByParameters(SearchParametersDTO searchParameters);
+
+    void saveBook(String bookName, String bookOwnerName, String returnDate);
 }

@@ -1,6 +1,9 @@
 package org.lib.dto;
 
+import org.springframework.security.core.parameters.P;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class BookDTO {
     private String name;
@@ -8,7 +11,7 @@ public class BookDTO {
     private String genre;
     private boolean isOccupied;
     private LocalDate returnDate;
-    private String ownerName="";
+    private String ownerName = "";
 
     public String getName() {
         return name;
@@ -17,6 +20,11 @@ public class BookDTO {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getFormattedDate() {
+        return returnDate == null ? "" : returnDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    }
+
 
     public String getAuthor() {
         return author;
@@ -69,6 +77,7 @@ public class BookDTO {
                 ", genre='" + genre + '\'' +
                 ", isOccupied=" + isOccupied +
                 ", returnDate=" + returnDate +
+                ", ownerName='" + ownerName + '\'' +
                 '}';
     }
 }

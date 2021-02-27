@@ -7,7 +7,8 @@
 
 	<title>Библиотека</title>
 	<c:set var="staticRoot" value="${pageContext.request.contextPath}/resources"/>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 	<style>
            <%@include file='../../resources/css/main.css' %>
            <%@include file='../../resources/css/registrationAndLogin.css' %>
