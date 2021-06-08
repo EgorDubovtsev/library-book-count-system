@@ -20,14 +20,14 @@
 	<div class="regWindow">
 		<div>
 			<form:form action="registration/proceed" method="post" modelAttribute="registrationForm" class="regFields">
-				<h3>Зарегестрироваться</h3>
+				<h3>Зарегистрироваться</h3>
 				<form:input path="login" id="check_login" class="filterField regImpt" placeholder="Логин" title="Login" />
 				<form:input path="password" id="check_password" class="filterField regImpt" placeholder="Пароль"  type="password" title="Password" />
 				<form:input path="name" class="filterField regImpt" placeholder="Имя" title="Имя" />
 	            <div class="errorWrapperLogin sml">
 	            	<span class="errorMessage">${errorMessage}</span>
 				</div>
-				<button class="btn regBtn">Зарегестрироваться</button>
+				<button class="btn regBtn">Зарегистрироваться</button>
 
 			</form:form>
 			<form:form action="/login" method="get" class="redirectButtonEnter">
